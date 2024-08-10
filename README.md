@@ -1,2 +1,2 @@
 # competitive-programming
- my solutions of some problemset
+ my solutions of some problems set
