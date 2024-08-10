@@ -1,0 +1,1 @@
+{"name":"Local: distinct-numbers","url":"c:\\Users\\denil\\OneDrive\\Desktop\\desafios\\inacabados\\distinct-numbers.cpp","tests":[{"id":1719512501405,"input":"5\n2 3 3 2 2","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\denil\\OneDrive\\Desktop\\desafios\\inacabados\\distinct-numbers.cpp","group":"local","local":true}

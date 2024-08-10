@@ -1,0 +1,1 @@
+{"name":"Local: two-sets","url":"c:\\Users\\denil\\OneDrive\\Desktop\\desafios\\inacabados\\two-sets.cpp","tests":[{"id":1719851961154,"input":"7","output":"YES\n4\n1 2 4 7\n3\n3 5 6"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\denil\\OneDrive\\Desktop\\desafios\\inacabados\\two-sets.cpp","group":"local","local":true}
