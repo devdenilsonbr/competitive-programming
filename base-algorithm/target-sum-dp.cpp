@@ -10,7 +10,7 @@ int vis[50000]={0};
 bool targetSum (int target, vector<int> nums) {
     if (vis[target]) return dp[target]; //vef se ja foi visitado
     if (target == 0) return 1; // então tem a soma no conjunto de numeros
-    if (target < 0) return 0; // não tem a soma, está na raiz da arvores
+    if (target < 0) return 0; // não tem a soma, está na folha da arvores
 
     for (auto e:nums) {
         int tree = target - e;
