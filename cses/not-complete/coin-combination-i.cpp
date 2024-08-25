@@ -1,24 +1,26 @@
 #include <bits/stdc++.h>
+#define int long long
 
 using namespace std;
 
-const int maxn = 1e6+10;
+const int maxn = 1e3;
 
-vector<int> nums;
+int nums[maxn];
 int dp[maxn];
 bool vis[maxn];
-int r = 1e9+7;
+int r = 1e9+7, n;
 
 int coin(int num) {
+    int cont = 0;
+
     if (vis[num]) return dp[num];
     if (num == 0) return 1;
     if (num < 0) return 0;
 
-    long long cont=0;
 
-    for (auto e:nums) {
-        int remainder = num - e;
-        cont += (coin(remainder))%r;
+    for (int i=1; i<=n; i++) {
+        int remainder = num - nums[i];
+        cont = (cont + coin(remainder))%r;
     }
     dp[num] = cont;
     vis[num] = 1;
@@ -26,17 +28,13 @@ int coin(int num) {
 }
 
 int32_t main() {
-    int n, sum; cin >> n >> sum;
+    int sum; cin >> n >> sum;
 
-    for (int i=0; i<n; i++) {
-        int a; cin >> a;
-        nums.push_back(a);
+    for (int i=1; i<=n; i++) {
+        cin >> nums[i];
     } 
 
-
-    long long ans = coin(sum);
-
-    cout << ans << "\n";
+    cout << coin(sum) << "\n";
 
     return 0;
 }

@@ -29,8 +29,10 @@ int32_t main() {
             else {
                 dp[i][j] = dp[i-1][j] || dp[i-1][j-num[i]];
             }
+            if (dp[i][j]) cout << j << " ";// o j é todas as somas possiveis
         }
     }
+    cout << "\n";
 
     if (dp[t][n]) cout << "S\n";
     else cout << "N\n";    
