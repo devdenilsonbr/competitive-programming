@@ -7,9 +7,8 @@ using namespace std;
 
 const int inf = 1e7;
 
-vector<int> cities;
-vector<int> sz, asc;
-vector<bool> vis;
+vector<int> cities, sz, vis, ances;
+int path[MAXN][MAXN];
 
 int find(int p) {
     if (cities[p] == p) return p;
@@ -25,8 +24,6 @@ void uni(int p, int q) {
 }
 
 void bfs(int a, vector<int> graph[MAXN]) {
-    vis[a] = 1;
-    asc[a] = a;
     queue<int> travel;
     travel.push(a);
     while (!travel.empty()) {
@@ -36,7 +33,7 @@ void bfs(int a, vector<int> graph[MAXN]) {
         for (auto e:graph[curr]) {
             if (!vis[e]) {
                 vis[e] = 1;
-                asc[e] = curr;
+                ances[e] = curr;
                 travel.push(e);
             }
         }
@@ -49,8 +46,8 @@ int main() {
 
     while (cin >> n >> m) {
         if (!n && !m) break;
-        cities.resize(n); sz.assign(n, 1); asc.resize(n);
-        vis.assign(n, 0);
+        cities.resize(n); sz.assign(n, 1);
+        vis.assign(n, 0); ances.resize(n);
         vector<tii> roads;
         
         for (int i=0; i<n; i++) cities[i] = i;
@@ -63,14 +60,12 @@ int main() {
 
         sort(roads.rbegin(), roads.rend());
         vector<int> graph[MAXN];
-        int path[MAXN][MAXN];
-        memset(path, inf, sizeof(path));
 
         for (auto [a, b, c]:roads) {
             if (find(b) != find(c)) {
                 graph[b].push_back(c);
                 graph[c].push_back(b);
-                path[b][c] = a; path[c][b] = a;
+                path[b][c] = path[c][b] = a;
                 uni(b, c);
             }
         }
@@ -80,20 +75,16 @@ int main() {
         int ori, des, t; cin >> ori >> des >> t;
         ori--;des--;
 
-        int ans=inf;
+        int ans=inf, aux = ances[des];
 
-        while (asc[des] != ori) {
-            int next = asc[des];
-            ans = min(ans, path[des][next]);
-            des = asc[des];
+        while (aux != ori) {
+            ans = min(path[aux][des], ans);
+            des = aux;
+            aux = ances[aux];
         }
 
         cout << ans << "\n";
-        
-
     }
-
-
 
     return 0;
 }
