@@ -16,7 +16,7 @@ void uni(int p, int q){
     if (sz[a] < sz[b]) swap(a, b);
     group[b] = a;
     sz[a] += sz[b];
-    
+    bigger[a] = max(bigger[a], bigger[b]);
 }
 
 int main() {
@@ -28,24 +28,22 @@ int main() {
         string name; int pw; cin >> name >> pw;
         con[name] = i;
         group[i] = i;
-        ori[i] = pw;
+        ori[i] = bigger[i] = pw;
     }
 
     for (int i=0; i<m; i++) {
         string a, b; cin >> a >> b;
         uni(con[a], con[b]);
         sens[con[a]] = sens[con[b]] = 1;
-
     }
 
     for (int i=0; i<q; i++) {
         string ls; cin >> ls;
         if (!sens[con[ls]]) cout << "S\n";
-        else if (ori[con[ls]] >= 5 && bigger[fin(con[ls])] <= 5) cout << "S\n";
+        else if (ori[con[ls]] >= 5) cout << "S\n";
+        else if (bigger[fin(con[ls])] <= 5) cout << "S\n";
         else cout << "N\n";
     }
-
-    for (auto e:bigger) cout << e << " ";
 
     return 0; 
 }
