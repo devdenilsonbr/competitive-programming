@@ -24,7 +24,6 @@ int32_t main() {
                 hier[i][k] = 0;//como o ancestral de 1 é uma excessao, para evitar loops ou acessos invalidos é feito uma vef
                 continue;
             }
-
             hier[i][k] = hier[i-1][hier[i-1][k]];
         }
     }
