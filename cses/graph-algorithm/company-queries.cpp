@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
+#define MAXN 32
 
 using namespace std;
 
-const int MAXN = 32;
 
 int main() {
     ios_base::sync_with_stdio(false); cin.tie(0);
@@ -22,7 +22,6 @@ int main() {
                 hier[i][k] = -1;//como o ancestral de 1 é uma excessao, para evitar loops ou acessos invalidos é feito uma vef
                 continue;
             }
-
             hier[i][k] = hier[i-1][hier[i-1][k]];
         }
     }
