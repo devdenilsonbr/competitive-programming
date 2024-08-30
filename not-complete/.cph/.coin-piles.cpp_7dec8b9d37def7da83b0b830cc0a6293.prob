@@ -1,1 +1,0 @@
-{"name":"Local: coin-piles","url":"c:\\Users\\denil\\OneDrive\\Desktop\\desafios\\inacabados\\coin-piles.cpp","tests":[{"id":1720032443822,"input":"5\n2 1\n2 2\n3 3\n5 6\n7 9","output":"YES\nNO\nYES\nNO\nYES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\denil\\OneDrive\\Desktop\\desafios\\inacabados\\coin-piles.cpp","group":"local","local":true}

@@ -1,1 +1,0 @@
-{"name":"Local: fusoes","url":"c:\\Users\\denil\\OneDrive\\Desktop\\cp\\obi\\fusoes.cpp","tests":[{"id":1722857879454,"input":"4 4\nF 1 2\nF 3 4\nF 1 3\nC 2 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\denil\\OneDrive\\Desktop\\cp\\obi\\fusoes.cpp","group":"local","local":true}
